@@ -77,6 +77,17 @@ router.get('/api/account_by_id', utils.verify_token, (req, res) => {
         });
     })
 })
+router.get('/api/delete_account_by_id', utils.verify_token, (req, res) => {
+    store.delete_account_by_id(req.query.acc_id).then(data => res.json({
+        error: '', account: data.account
+    }))
+    .catch(er => {
+        console.log('error fetching accounts from db!:', er);
+        res.json({
+            error: 'try again', account: null
+        });
+    })
+})
 
 router.post('/api/add_account', utils.verify_token, (req, res) => {
     // console.log('post request insert')

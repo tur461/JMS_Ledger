@@ -1,8 +1,8 @@
 function normalize(rows, acols, tcols) {
-    console.log('rows', rows);
     let res = {
         txs: []
     }
+    if(!rows.length) return res; 
     
     tcols.push('tx_id');
     acols.push('acc_id');

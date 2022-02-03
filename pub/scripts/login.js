@@ -19,8 +19,12 @@ submit.addEventListener("click", (e) => {
         },
         body: JSON.stringify({ mail_id, pass_code }),
     })
-    .then((res) => res.json())
+    .then((res) => {
+        console.log('login status code:', res.status);
+        return res.json();
+    })
     .then((data) => {
+        
         //console.log(data);
         localStorage.setItem("token", data.token);
         localStorage.setItem('mail_id', mail_id);

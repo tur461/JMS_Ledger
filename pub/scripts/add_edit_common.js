@@ -280,12 +280,18 @@ function try_uploading(api_fix, xtra_data) {
         success: data => {
             console.log('success');
             if(!data.error){
-                alert(data.message);
+                toastr.success(data.message);
                 console.log('data received');
             } else {
+                toastr.error(data.error);
                 console.log('error:', data.error)
             }
             
+        },
+        error: (j, e) => {
+            if(j.status == 403) {
+                toastr.warning('please logout and then login again!');
+            }
         }
     });
 }

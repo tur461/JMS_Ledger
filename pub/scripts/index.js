@@ -34,6 +34,11 @@ $(document).ready(function(){
                     console.log('error:', data.error)
                 }
                 
+            },
+            error: (j, e) => {
+                if(j.status == 403) {
+                    toastr.warning('please logout and then login again!');
+                }
             }
         });
     }

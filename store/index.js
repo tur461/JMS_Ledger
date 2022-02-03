@@ -80,9 +80,7 @@ function _add_account(account, resolve, reject) {
 	let updated_on = Math.floor(Date.now()/1000);
     account.updated_on = updated_on;
     console.log('Add Account');
-    console.log('Before new amounts:', account);
     account = _get_new_amounts(null, account);
-    console.log('After new amounts:', account);
     d = acc_cols.map(c => account[c]);
     q = `INSERT INTO Accounts(${acc_cols.join(',')}) VALUES(${acc_cols.map(ac => `'${account[ac]}'`).join(',')})`;
     
@@ -167,9 +165,7 @@ function _update_account(account, resolve, reject) {
     console.log('Update account');
 	let old_acc = new Promise((r, j) => _get_account_by_id(account.acc_id, r, j));
     old_acc.then(old => {
-        console.log('Before new amounts:', account);
         account = _get_new_amounts(old, account);
-        console.log('After new amounts:', account);
         _update_account_internal(account, resolve, reject);
     })
     .catch(e => {
@@ -195,6 +191,34 @@ function _get_account_by_id(id, resolve, reject) {
             err: !1,
             account: normalize(rows, [...acc_cols], [...tx_cols]),
         });
+      });
+}
+
+function _delete_account_by_id(id, resolve, reject) {
+    let q = `UPDATE Accounts SET deleted=1 WHERE acc_id=${id}`;
+    db.run(q, [], function(err) {
+        if (err) {
+            console.log('error deleting Account:', err);
+            return reject({
+                err: !0,
+                msg: err.message
+            });
+        }
+        q = `UPDATE Transactions SET deleted=1 WHERE acc_id=${id}`;
+        db.run(q, [], err => {
+            if (err) {
+                console.log('error deleting Account:', err);
+                return reject({
+                    err: !0,
+                    msg: err.message
+                });
+            }
+            console.log(`Successfully deleted an Account with id ${id}.`);
+            resolve({
+                err: !1,
+                message: 'Deletion Success!',
+            });
+        })       
       });
 }
 
@@ -338,6 +362,7 @@ const store = {
     add_account: d => new Promise((r, j) => _add_account(d, r, j)),
     update_account: d => new Promise((r, j) => _update_account(d, r, j)),
     get_account_by_id: acc_id => new Promise((r, j) => _get_account_by_id(acc_id, r, j)),
+    delete_account_by_id: acc_id => new Promise((r, j) => _delete_account_by_id(acc_id, r, j)),
     get_accounts: _ => new Promise((r, j) => _get_accounts(r, j)),
     get_accounts_aggregate: _ => new Promise((r, j) => _get_accounts_aggregate(r, j)),
     get_accounts_by_name: n => new Promise((r, j) => _get_accounts_by_name(n, r, j)),
