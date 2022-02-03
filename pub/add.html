@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JMS</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/add.css" />
+  </head>
+  <body class="text-center">
+    <div class="container">
+      <nav class="navbar sticky navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="/">JMS</a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div>
+        <h2>NEW ACCOUNT</h2>
+        <div class="err_div">
+          <ul id="error_list" class="d-none text-left"></ul>
+        </div>
+      </div>
+      <div class="account--container">
+        <div class="account_section_1" id="account_section_1">
+          <div class="d-none">
+            <input
+              class="d-block"
+              type="text"
+              id="acc_number"
+              name="acc_number"
+            />
+          </div>
+
+          <div>
+            <label class="d-block" for="name">Name</label>
+            <input class="d-block" type="text" id="name" name="name" />
+          </div>
+
+          <div>
+            <label class="d-block" for="phone">Phone</label>
+            <input class="d-block" type="text" id="phone" name="phone" />
+          </div>
+
+          <div>
+            <label class="d-block" for="address">Address</label>
+            <input class="d-block" type="text" id="address" name="address" />
+          </div>
+        </div>
+        <div class="account_section_2" id="account_section_2">
+          <div class="item-row d-none" id="item-row_0">
+            <div>
+              <input
+                class="d-block"
+                type="date"
+                name="dated_0"
+                id="dated_0"
+                class="dated"
+              />
+            </div>
+            <div>
+              <input
+                class="d-block"
+                type="text"
+                name="desc_0"
+                id="desc_0"
+                class="desc"
+              />
+            </div>
+            <div>
+              <input
+                class="d-block"
+                type="number"
+                name="credit_0"
+                id="credit_0"
+                class="credit"
+              />
+            </div>
+            <div>
+              <input
+                class="d-block"
+                type="number"
+                name="debit_0"
+                id="debit_0"
+                class="debit"
+              />
+            </div>
+            <div>
+              <input
+                class="d-block"
+                type="number"
+                name="balance_0"
+                id="balance_0"
+                class="balance"
+                disabled
+              />
+            </div>
+            <div>
+              <button class="btn btn-danger remove_item">Remove</button>
+            </div>
+          </div>
+          <div id="item-rows_container">
+            <div class="item-row d-none" id="item-headings">
+              <div>
+                <label class="d-block" for="dated_0">Dated</label>
+              </div>
+              <div>
+                <label class="d-block" for="desc_0">Description</label>
+              </div>
+              <div>
+                <label class="d-block" for="credit_0">Credit</label>
+              </div>
+              <div>
+                <label class="d-block" for="debit_0">Debit</label>
+              </div>
+              <div>
+                <label class="d-block" for="balance_0">Balance</label>
+              </div>
+              <div></div>
+            </div>
+          </div>
+
+          <div>
+            <button class="btn btn-success" id="add_row-item">
+              Add Transaction
+            </button>
+          </div>
+        </div>
+        <div class="account_section_3">
+          <div>
+            <label class="d-block" for="total_credit">Total Credit</label>
+            <input
+              class="d-block"
+              type="number"
+              id="total_credit"
+              name="total_credit"
+              disabled
+            />
+          </div>
+          <div>
+            <label class="d-block" for="total_debit">Total Debit</label>
+            <input
+              class="d-block"
+              type="number"
+              id="total_debit"
+              name="total_debit"
+              disabled
+            />
+          </div>
+        </div>
+        <div class="account_section_4">
+          <button class="btn btn-success" id="upload_acc">Upload</button>
+          <button class="btn btn-danger" id="clear_acc">Clear</button>
+        </div>
+      </div>
+    </div>
+    <script
+      src="./scripts/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./scripts/common.js"></script>
+    <script src="./scripts/add_edit_common.js"></script>
+    <script src="./scripts/add.js"></script>
+  </body>
+</html>

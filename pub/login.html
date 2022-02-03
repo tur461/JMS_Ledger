@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jms login</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container text-center">
+      <form class="form-signin">
+        <img class="mb-4" src="./img/logo.png" alt="" width="80" height="80" />
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="mail_id" class="sr-only">Email address</label>
+        <input
+          name="mail"
+          type="email"
+          id="mail_id"
+          class="form-control text-center"
+          placeholder="Email address"
+          required
+          autofocus
+        />
+        <label for="pass_code" class="sr-only">Password</label>
+        <input
+          name="password"
+          type="password"
+          id="pass_code"
+          class="form-control text-center"
+          placeholder="Password"
+          required
+        />
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me" /> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary" id="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2021-2022</p>
+      </form>
+    </div>
+    <script src="scripts/login.js"></script>
+  </body>
+</html>

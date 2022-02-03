@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JMS</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/view.css" />
+    <script
+      src="./scripts/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="text-center">
+    <div class="container">
+      <nav
+        class="navbar sticky navbar-expand-lg navbar-dark bg-dark no-print--content"
+      >
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="/">JMS</a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/add.html">New</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/edit.html">Edit</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="no-print--content">
+        <h2>ACCOUNT</h2>
+      </div>
+      <div class="account--container no-print--border">
+        <div class="print_and_pdf--area">
+          <div>
+            <h3>JAMIA MATTING STORE</h3>
+            <span class="d-block">Jamia Masjid, Nowhatta</span>
+            <span class="d-block">9797123456, 9797732731</span>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-right font-weight-bold">Acc No.:</td>
+                <td class="bottom-bordered" id="acc_number"></td>
+                <td class="text-right font-weight-bold">Name:</td>
+                <td colspan="2" class="bottom-bordered" id="name"></td>
+              </tr>
+              <tr>
+                <td class="text-right font-weight-bold">Address:</td>
+                <td colspan="5" class="bottom-bordered" id="address"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th colspan="1">Dated</th>
+                <th colspan="4">Description</th>
+                <th colspan="1">Credit</th>
+                <th colspan="2">Debit</th>
+                <th colspan="3">Balance</th>
+              </tr>
+            </thead>
+            <tbody id="account_items_container">
+              <tr>
+                <td colspan="7" class="text-right font-weight-bold">
+                  Total Credit:
+                </td>
+                <td colspan="4" class="bottom-bordered" id="total_credit"></td>
+              </tr>
+              <tr>
+                <td colspan="7" class="text-right font-weight-bold">
+                  Total Debit:
+                </td>
+                <td colspan="4" class="bottom-bordered" id="total_debit"></td>
+              </tr>
+              <tr>
+                <td colspan="7" class="text-right font-weight-bold">
+                  Total Balance:
+                </td>
+                <td colspan="4" class="bottom-bordered" id="total_balance"></td>
+              </tr>
+              <tr>
+                <td colspan="3" class="text-right font-weight-bold">
+                  Auth. Signature:
+                </td>
+                <td colspan="8" class="bottom-bordered"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="account_section_4 no-print--content">
+          <button class="btn btn-success" id="print_acc">Print</button>
+        </div>
+      </div>
+    </div>
+    <script src="./scripts/common.js"></script>
+    <script src="./scripts/add_edit_common.js"></script>
+    <script src="./scripts/view.js"></script>
+  </body>
+</html>

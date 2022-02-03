@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JMS</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script>
+      if (!localStorage.getItem("token")) {
+        //console.log("redirecting...", window.location);
+        window.location = window.location.origin + "/login.html";
+      }
+    </script>
+  </head>
+  <body class="text-center">
+    <div class="container">
+      <nav class="navbar sticky navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="/">JMS</a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/add.html">New</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="logout">Logout</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0 nav_form--index">
+            <label for="search_by">Search By</label>
+            <select id="search_by" class="search_by--selector">
+              <option value="1" selected>Name</option>
+              <option value="2">Acc Number</option>
+            </select>
+            <input
+              id="search_box"
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </form>
+        </div>
+      </nav>
+      <div class="summary">
+        <div class="o-cred_debt">
+          <div class="overall_credit">
+            <span class="font-weight-bold">Overall CREDIT:</span>
+            <span id="overall_credit" class="font-weight-bold"></span>
+          </div>
+          <div class="overall_debit">
+            <span class="font-weight-bold">Overall DEBIT:</span>
+            <span id="overall_debit" class="font-weight-bold"></span>
+          </div>
+          <div class="overall_balance">
+            <span class="font-weight-bold">Overall BALANCE:</span>
+            <span id="overall_balance" class="font-weight-bold"></span>
+          </div>
+        </div>
+      </div>
+      <div id="all_accounts-container" class="accounts_container"></div>
+    </div>
+    <script
+      src="./scripts/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./scripts/common.js"></script>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
