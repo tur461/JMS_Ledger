@@ -12,9 +12,10 @@ let db = new sqlite3.Database(db_path, sqlite3.OPEN_READWRITE, err => {
         db.run(`CREATE TABLE IF NOT EXISTS 
             User(
                 id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                mail_id text UNIQUE NOT NULL, 
-                pass_code text NOT NULL,
-                token text
+                mail_id TEXT UNIQUE NOT NULL, 
+                pass_code TEXT NOT NULL,
+                token TEXT,
+                updated_on INTEGER
             )`
         );
         db.run(`CREATE TABLE IF NOT EXISTS Transactions(
