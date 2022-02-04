@@ -202,7 +202,7 @@ function try_get_acc_data() {
             //         id: `desc_${i}`,
             //         message: 'description not valid',
             //     });
-            }
+            // }
             sec_2.txs.push({
                 description: desc,
                 credit: $(`#credit_${i}`).val(),
