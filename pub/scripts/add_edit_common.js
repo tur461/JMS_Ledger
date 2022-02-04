@@ -160,23 +160,23 @@ function try_get_acc_data() {
         address: $('#address').val()
     };
 
-    if(!validate.name(sec_1.name))
-        err.ids.push({
-            id: `name`,
-            message: 'name not valid',
-        });
+    // if(!validate.name(sec_1.name))
+    //     err.ids.push({
+    //         id: `name`,
+    //         message: 'name not valid',
+    //     });
 
-    if(!validate.phone(sec_1.phone))
-        err.ids.push({
-            id: `phone`,
-            message: 'phone not valid',
-        });
+    // if(!validate.phone(sec_1.phone))
+    //     err.ids.push({
+    //         id: `phone`,
+    //         message: 'phone not valid',
+    //     });
 
-    if(!validate.address(sec_1.address))
-        err.ids.push({
-            id: `address`,
-            message: 'address not valid',
-        });
+    // if(!validate.address(sec_1.address))
+    //     err.ids.push({
+    //         id: `address`,
+    //         message: 'address not valid',
+    //     });
 
     let sec_3 = {
         credit_total: +$('#total_credit').val(),
@@ -197,11 +197,11 @@ function try_get_acc_data() {
             let desc = $(`#desc_${i}`).val();
             // skip if indexing is not contigous! (if desc elem !exists!)
             if(desc === undefined) continue;
-            if(!validate.desc(desc)) {
-                err.ids.push({
-                    id: `desc_${i}`,
-                    message: 'description not valid',
-                });
+            // if(!validate.desc(desc)) {
+            //     err.ids.push({
+            //         id: `desc_${i}`,
+            //         message: 'description not valid',
+            //     });
             }
             sec_2.txs.push({
                 description: desc,
